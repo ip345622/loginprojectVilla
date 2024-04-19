@@ -1,5 +1,7 @@
 import React, {useState,useEffect} from "react";
 import axios from 'axios';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Pie } from "react-chartjs-2";
 
 function Home(){
 
@@ -17,6 +19,48 @@ function Home(){
         fetchData();
 
     }, []); 
+
+  ChartJS.register(ArcElement, Tooltip, Legend);
+
+    const animales = {"id":1,"vaca":1,"pollo":3,"obeja":5};
+
+    var options = {
+        responsive: true,
+        maintainAspectRatio: true,
+      };
+
+    var data1 = {
+        labels: [
+          `Vaca`,
+          `pollo`,
+          `obejas`,
+        ],
+        datasets: [
+          {
+            label: "",
+            data: [
+              animales?.vaca,
+              animales?.pollo,
+              animales?.obeja,
+            ],
+            backgroundColor: [
+              "rgba(255, 99, 132, 0.2)",
+              "rgba(255, 206, 86, 0.2)",
+              "rgba(54, 162, 235, 0.2)",
+              "rgba(75, 192, 192, 0.2)",
+              "rgba(153, 102, 255, 0.2)",
+            ],
+            borderColor: [
+              "rgba(255, 99, 132, 1)",
+              "rgba(255, 206, 86, 1)",
+              "rgba(54, 162, 235, 1)",
+              "rgba(75, 192, 192, 1)",
+              "rgba(153, 102, 255, 1)",
+            ],
+            borderWidth: 1,
+          },
+        ],
+      };
 
     return(
 
@@ -41,7 +85,7 @@ function Home(){
                 </div>
               <div className="flex flex-wrap justify-center  items-center " >
             <div className="flex flex-wrap" >
-                <div className="  rounded-lg bg-zinc-700 border-2 border-zinc-800 w-[30vw] h-[70vh]">
+                <div className="  rounded-lg bg-[#ffffff70] shadow-md w-[30vw] h-[70vh]">
                 <h1 className="font-semibold mt-[5%] text-2xl w-full text-center">TOTAL DE ANIMALES</h1>
                 <div className="flex mx-auto  mt-[5%] w-[15vw] h-[10vh]">
                         <img className="w-[5vw]" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV8l4r4nF8DCbvvkkX3l_7gzHF_ryqb4LjBgrdCTC_WA&s"/>
@@ -68,7 +112,7 @@ function Home(){
                 </div>
 
            <div className="flex flex-col  mx-[5%] mt-[5%] mb-[5%]">
-           <div className="bg-zinc-700 border-2 border-zinc-800 px-[5%] h-[34vh] rounded-lg w-[40vw]">
+           <div className="bg-[#ffffff70] shadow-md px-[5%] h-[34vh] rounded-lg w-[40vw]">
                 <h2 className="text-2xl font-semibold">LCD</h2>
                  
                 <div className=" mx-[10%] py-[2%] flex items-center justify-center bg-green-600 w-[30vw] h-[20vh] bg:${item ? 'white' :">
@@ -88,9 +132,12 @@ function Home(){
                   
                 </div>
                 </div>
-                <div className="bg-zinc-700 border-2 border-zinc-800 mt-[2%] h-[34vh] w-[40vw] rounded-lg ">
-                <h2 className="font-semibold text-2xl">LED</h2>
-
+                <div className="bg-[#ffffff70] shadow-md mt-[2%] h-[34vh] w-[40vw] rounded-lg ">
+                <h2 className="font-semibold text-2xl"></h2>
+                <div className="flex justify-center">
+                    {/* <canvas id="myChart"></canvas> */}
+                  <Pie data={data1} options={options} style={{height: "300px"}}  />
+                </div>
                 </div>
                 
            </div>

@@ -6,8 +6,8 @@ import { toast } from 'react-toastify';
 function Login() {
     const navigation = useNavigate();
 
-    const urllogin = "http://localhost:4000/api/login";
-    const urlregistes = "http://localhost:4000/api/register";
+    const urllogin = "http://192.168.65.103:4000/api/login";
+    const urlregistes = "http://192.168.65.103:4000/api/register";
     const [showRegister, setShowRegister] = useState(false);
     //Login
     const [emailLogin, setEmailLogin] = useState("");
