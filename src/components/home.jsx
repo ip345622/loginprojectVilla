@@ -16,20 +16,33 @@ function Home(){
     useEffect(() => {
         fetchData();
 
-    }, []);
+    }, []); 
 
     return(
 
-      <>
+      <div className="w-screen h-screen bg-[url('./assets/fondo.jpg')] bg-no-repeat bg-cover justify-center">
+                        <div className='bg-zinc-800 w-full h-[12vh] self-start flex flex-wrap justify-between  items-center px-[2vw] font-semibold text-white border-b-2 text-lg'>
                     <div className='flex flex-wrap'>
                         <img src="https://cdn.worldvectorlogo.com/logos/arduino-1.svg" className='w-[2vw] mx-[.5vw]'></img>
                         <span className=''>MineDuino</span>
                     </div>
-            <h1 className="text-4xl font-semibold ">MINECRAFT</h1>
+                    <ul className='font-normal flex gap-[2vw]'>
+                        <li>
+                            <a href="">
+                                Inicio
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                Acerca de nosotros
+                            </a>
+                        </li>
+                    </ul>
+                </div>
               <div className="flex flex-wrap justify-center  items-center " >
             <div className="flex flex-wrap" >
-                <div className="  rounded-lg bg-[#ffffff] border-2 w-[30vw] h-[70vh]">
-                <h1 className="font-semibold mt-[5%] text-2xl ">TOTAL DE ANIMALES</h1>
+                <div className="  rounded-lg bg-zinc-700 border-2 border-zinc-800 w-[30vw] h-[70vh]">
+                <h1 className="font-semibold mt-[5%] text-2xl w-full text-center">TOTAL DE ANIMALES</h1>
                 <div className="flex mx-auto  mt-[5%] w-[15vw] h-[10vh]">
                         <img className="w-[5vw]" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQV8l4r4nF8DCbvvkkX3l_7gzHF_ryqb4LjBgrdCTC_WA&s"/>
                         <h2 className="px-[2%] font-semibold">Total de gallinas:{ data ? ( data.map((item, index) => ( <span className="" key={index}> {item.pollo} </span>))) : ( <p>Cargando</p> )}</h2>
@@ -55,7 +68,7 @@ function Home(){
                 </div>
 
            <div className="flex flex-col  mx-[5%] mt-[5%] mb-[5%]">
-           <div className="bg-[#ffffff] px-[5%] border-2 h-[34vh] rounded-lg w-[40vw]">
+           <div className="bg-zinc-700 border-2 border-zinc-800 px-[5%] h-[34vh] rounded-lg w-[40vw]">
                 <h2 className="text-2xl font-semibold">LCD</h2>
                  
                 <div className=" mx-[10%] py-[2%] flex items-center justify-center bg-green-600 w-[30vw] h-[20vh] bg:${item ? 'white' :">
@@ -75,10 +88,9 @@ function Home(){
                   
                 </div>
                 </div>
-                <div className="bg-[#ffffff] mt-[2%] boder-2 h-[34vh] w-[40vw] rounded-lg ">
+                <div className="bg-zinc-700 border-2 border-zinc-800 mt-[2%] h-[34vh] w-[40vw] rounded-lg ">
                 <h2 className="font-semibold text-2xl">LED</h2>
-                    <p>LUZ VERDE PRENDIDA</p>
-                    <p>LUZ VERDE APAAGDA</p>
+
                 </div>
                 
            </div>
@@ -86,7 +98,7 @@ function Home(){
                 
     
         </div>
-        </>
+        </div>
         
     )
 }
