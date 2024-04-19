@@ -4,6 +4,8 @@ import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css';
 import { Login,Register,Home } from "./components";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AppRoutes = () => {
   let routes = useRoutes([
@@ -24,6 +26,7 @@ function App() {
       <Route path="/register" element={<Register/>} />,
       <Route path="/home" element={<Home/>} />,
     </Routes>
+    <ToastContainer />
   </BrowserRouter>
   )
 }
